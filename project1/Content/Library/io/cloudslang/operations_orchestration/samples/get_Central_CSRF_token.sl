@@ -32,11 +32,9 @@
 ####################################################
 
 namespace: io.cloudslang.operations_orchestration.samples
-
 imports:
   rest: io.cloudslang.base.http
   utils: io.cloudslang.base.http.utils
-
 flow:
   name: get_Central_CSRF_token
   inputs:
@@ -45,7 +43,7 @@ flow:
         default: '8080'
         required: false
     - protocol:
-        default: 'http'
+        default: http
         required: false
     - username:
         default: ''
@@ -55,35 +53,34 @@ flow:
         required: false
         sensitive: true
     - trust_keystore:
-        default: ${get_sp('io.cloudslang.operations_orchestration.trust_keystore')}
+        default: "${get_sp('io.cloudslang.operations_orchestration.trust_keystore')}"
         required: false
     - trust_password:
-        default: ${get_sp('io.cloudslang.operations_orchestration.trust_password')}
+        default: "${get_sp('io.cloudslang.operations_orchestration.trust_password')}"
         required: false
         sensitive: true
     - keystore:
-        default: ${get_sp('io.cloudslang.operations_orchestration.keystore')}
+        default: "${get_sp('io.cloudslang.operations_orchestration.keystore')}"
         required: false
     - keystore_password:
-        default: ${get_sp('io.cloudslang.operations_orchestration.keystore_password')}
+        default: "${get_sp('io.cloudslang.operations_orchestration.keystore_password')}"
         required: false
         sensitive: true
-
   workflow:
     - get_central_version:
         do:
           rest.http_client_get:
-            - url: ${protocol + '://' + host + ':' + port + '/oo/rest/version/'}
+            - url: "${protocol + '://' + host + ':' + port + '/oo/rest/version/'}"
             - username
             - password
-            - trust_all_roots: "false"
-            - x_509_hostname_verifier: "strict"
+            - trust_all_roots: 'false'
+            - x_509_hostname_verifier: strict
             - trust_keystore
             - trust_password
             - keystore
             - keystore_password
             - headers: 'Authorization: Basic'
-            - content_type: 'application/json'
+            - content_type: application/json
         publish:
           - return_result
           - error_message
@@ -93,18 +90,16 @@ flow:
         navigate:
           - SUCCESS: get_CSRF_token_value
           - FAILURE: FAILURE
-
     - get_CSRF_token_value:
         do:
           utils.get_header_value:
             - response_headers
-            - header_name: 'X-CSRF-TOKEN'
+            - header_name: X-CSRF-TOKEN
         publish:
-          - token: ${result}
+          - token: '${result}'
         navigate:
           - SUCCESS: SUCCESS
           - FAILURE: FAILURE
-
   outputs:
     - return_result
     - error_message
@@ -112,7 +107,35 @@ flow:
     - status_code
     - response_headers
     - token
-
   results:
     - SUCCESS
     - FAILURE
+extensions:
+  graph:
+    steps:
+      get_central_version:
+        x: 106
+        y: 113
+        navigate:
+          c099ceee-cdbb-f8b5-a1dc-1ea3905596c7:
+            targetId: fe07bb2d-c89c-a15f-0bc1-7085d96f60ce
+            port: FAILURE
+      get_CSRF_token_value:
+        x: 400
+        y: 125
+        navigate:
+          270f3e0c-554e-e15e-f8ae-457845e560c6:
+            targetId: 6325b37e-374e-f019-8683-1e8445432f6d
+            port: SUCCESS
+          93b5ec4b-8950-5768-e2c0-2ebb79aba349:
+            targetId: fe07bb2d-c89c-a15f-0bc1-7085d96f60ce
+            port: FAILURE
+    results:
+      SUCCESS:
+        6325b37e-374e-f019-8683-1e8445432f6d:
+          x: 700
+          y: 250
+      FAILURE:
+        fe07bb2d-c89c-a15f-0bc1-7085d96f60ce:
+          x: 400
+          y: 375
