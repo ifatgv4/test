@@ -210,7 +210,7 @@ extensions:
       POPULATE_LIB_FOLDER_FAILURE:
         a1295dc3-205d-218c-7a5d-71efd09c9e21:
           x: 700
-          y: 375
+          y: 377
       CREATE_ARCHIVE_FAILURE:
         71a25a17-0a10-70aa-72bb-59ec06fc6981:
           x: 2500
