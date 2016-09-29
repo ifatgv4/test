@@ -199,43 +199,7 @@ extensions:
             targetId: 71a25a17-0a10-70aa-72bb-59ec06fc6981
             port: FAILURE
     results:
-      CREATE_JAR_FAILURE:
-        e53057f0-9c34-1ffe-98e9-f812f1b0d502:
-          x: 2800
-          y: 375
       SUCCESS:
         0faa84e5-ead3-4fe8-0fd5-1a6049b22a45:
           x: 3100
           y: 125
-      POPULATE_LIB_FOLDER_FAILURE:
-        a1295dc3-205d-218c-7a5d-71efd09c9e21:
-          x: 700
-          y: 377
-      CREATE_ARCHIVE_FAILURE:
-        71a25a17-0a10-70aa-72bb-59ec06fc6981:
-          x: 2500
-          y: 375
-      CREATE_SYSTEM_PROPERTIES_FAILURE:
-        6f8d2221-f947-4e33-044f-09c4f37cc645:
-          x: 1000
-          y: 375
-      CREATE_CP_PROPERTIES_FAILURE:
-        5eceed9b-19db-8ef7-bd0e-54665ee16cee:
-          x: 2200
-          y: 375
-      CLEAN_FOLDER_FAILURE:
-        1c8cb1ab-b9d7-3590-33ea-6fcc88a1a8a8:
-          x: 3100
-          y: 375
-      CREATE_LIB_FOLDER_FAILURE:
-        548b54c3-0569-dc7b-a8f7-15b2cd3e0679:
-          x: 400
-          y: 375
-      CREATE_LIBRARY_STRUCTURE_FAILURE:
-        324faa61-f222-d1ec-edfa-aebe80f418cc:
-          x: 1300
-          y: 375
-      COPY_CONTENT_FAILURE:
-        b8a1f164-d1f7-13c5-5535-3a171ece49f7:
-          x: 1600
-          y: 375
