@@ -185,8 +185,8 @@ extensions:
             targetId: e53057f0-9c34-1ffe-98e9-f812f1b0d502
             port: FAILURE
       populate_Lib_folder:
-        x: 314
-        y: 70
+        x: 211
+        y: 64
         navigate:
           c970e4c5-ffdf-b079-b62a-10e15c43c5f0:
             targetId: a1295dc3-205d-218c-7a5d-71efd09c9e21
