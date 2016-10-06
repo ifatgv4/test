@@ -1,0 +1,3 @@
+namespace: ''
+properties:
+  - gfgfg: gfg
